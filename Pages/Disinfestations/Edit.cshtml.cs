@@ -36,7 +36,7 @@ namespace proiectVetApp.Pages.Disinfestations
                 return NotFound();
             }
             Disinfestation = disinfestation;
-           ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Id");
+           ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Name");
             return Page();
         }
 

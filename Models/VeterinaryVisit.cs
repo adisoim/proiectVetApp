@@ -5,9 +5,13 @@ namespace proiectClinica.Models
     public class VeterinaryVisit
     {
         public int Id { get; set; }
+        [Display(Name = "Pet")]
         public int? AnimalId { get; set; }
+        [Display(Name = "Pet")]
         public Animal? Animal { get; set; }
+        [Display(Name = "Clinic")]
         public int? VeterinaryClinicId { get; set; }
+        [Display(Name = "Clinic")]
         public VeterinaryClinic? VeterinaryClinic { get; set; }
         [DataType(DataType.Date)]
         public DateTime VisitDate { get; set; }

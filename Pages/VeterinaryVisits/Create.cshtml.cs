@@ -21,8 +21,8 @@ namespace proiectVetApp.Pages.VeterinaryVisits
 
         public IActionResult OnGet()
         {
-        ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Id");
-        ViewData["VeterinaryClinicId"] = new SelectList(_context.VeterinaryClinic, "Id", "Id");
+        ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Name");
+        ViewData["VeterinaryClinicId"] = new SelectList(_context.VeterinaryClinic, "Id", "Name");
             return Page();
         }
 

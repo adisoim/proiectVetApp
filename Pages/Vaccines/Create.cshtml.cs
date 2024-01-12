@@ -21,7 +21,7 @@ namespace proiectVetApp.Pages.Vaccines
 
         public IActionResult OnGet()
         {
-        ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Id");
+        ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Name");
             return Page();
         }
 

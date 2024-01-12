@@ -36,7 +36,7 @@ namespace proiectVetApp.Pages.Vaccines
                 return NotFound();
             }
             Vaccine = vaccine;
-           ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Id");
+           ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Name");
             return Page();
         }
 

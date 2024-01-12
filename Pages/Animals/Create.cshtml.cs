@@ -21,7 +21,7 @@ namespace proiectVetApp.Pages.Animals
 
         public IActionResult OnGet()
         {
-        ViewData["MemberId"] = new SelectList(_context.Set<Member>(), "Id", "Id");
+        ViewData["MemberId"] = new SelectList(_context.Set<Member>(), "Id", "Name");
             return Page();
         }
 

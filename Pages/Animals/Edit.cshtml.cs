@@ -36,7 +36,7 @@ namespace proiectVetApp.Pages.Animals
                 return NotFound();
             }
             Animal = animal;
-           ViewData["MemberId"] = new SelectList(_context.Set<Member>(), "Id", "Id");
+           ViewData["MemberId"] = new SelectList(_context.Set<Member>(), "Id", "Name");
             return Page();
         }
 
