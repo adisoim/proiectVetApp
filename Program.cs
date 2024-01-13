@@ -1,7 +1,6 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using proiectVetApp.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using proiectVetApp.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthorization(options =>

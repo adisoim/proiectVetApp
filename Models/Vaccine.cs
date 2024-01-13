@@ -14,6 +14,6 @@ namespace proiectClinica.Models
         [DataType(DataType.Date)]
         public DateTime VaccineDate { get; set; }
         [RegularExpression(@"^[A-Z][a-zA-Z\s-]*$", ErrorMessage = "Numele medicului veterinar trebuie să înceapă cu majusculă și să conțină între 3 și 30 de caractere.")]
-        public string Vet {  get; set; }
+        public string Vet { get; set; }
     }
 }

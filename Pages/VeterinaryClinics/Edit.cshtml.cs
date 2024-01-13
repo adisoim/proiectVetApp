@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using proiectClinica.Models;
-using proiectVetApp.Data;
 
 namespace proiectVetApp.Pages.VeterinaryClinics
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly proiectVetApp.Data.proiectVetAppContext _context;
@@ -30,7 +26,7 @@ namespace proiectVetApp.Pages.VeterinaryClinics
                 return NotFound();
             }
 
-            var veterinaryclinic =  await _context.VeterinaryClinic.FirstOrDefaultAsync(m => m.Id == id);
+            var veterinaryclinic = await _context.VeterinaryClinic.FirstOrDefaultAsync(m => m.Id == id);
             if (veterinaryclinic == null)
             {
                 return NotFound();

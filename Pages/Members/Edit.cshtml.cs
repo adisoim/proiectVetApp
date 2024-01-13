@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using proiectClinica.Models;
-using proiectVetApp.Data;
 
 namespace proiectVetApp.Pages.Members
 {
@@ -31,7 +24,7 @@ namespace proiectVetApp.Pages.Members
                 return NotFound();
             }
 
-            var member =  await _context.Member.FirstOrDefaultAsync(m => m.Id == id);
+            var member = await _context.Member.FirstOrDefaultAsync(m => m.Id == id);
             if (member == null)
             {
                 return NotFound();

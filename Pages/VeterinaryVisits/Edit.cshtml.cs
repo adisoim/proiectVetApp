@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using proiectClinica.Models;
-using proiectVetApp.Data;
 
 namespace proiectVetApp.Pages.VeterinaryVisits
 {
@@ -30,14 +25,14 @@ namespace proiectVetApp.Pages.VeterinaryVisits
                 return NotFound();
             }
 
-            var veterinaryvisit =  await _context.VeterinaryVisit.FirstOrDefaultAsync(m => m.Id == id);
+            var veterinaryvisit = await _context.VeterinaryVisit.FirstOrDefaultAsync(m => m.Id == id);
             if (veterinaryvisit == null)
             {
                 return NotFound();
             }
             VeterinaryVisit = veterinaryvisit;
-           ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Name");
-           ViewData["VeterinaryClinicId"] = new SelectList(_context.VeterinaryClinic, "Id", "Name");
+            ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Name");
+            ViewData["VeterinaryClinicId"] = new SelectList(_context.VeterinaryClinic, "Id", "Name");
             return Page();
         }
 

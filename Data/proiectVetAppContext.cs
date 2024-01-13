@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using proiectClinica.Models;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace proiectVetApp.Data
 {
     public class proiectVetAppContext : DbContext
     {
-        public proiectVetAppContext (DbContextOptions<proiectVetAppContext> options)
+        public proiectVetAppContext(DbContextOptions<proiectVetAppContext> options)
             : base(options)
         {
         }

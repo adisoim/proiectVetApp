@@ -18,7 +18,7 @@ namespace proiectClinica.Models
         [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
         public ICollection<Disinfestation>? Disinfestations { get; set; }
-        public ICollection<Vaccine>? Vaccines { get; set;}
+        public ICollection<Vaccine>? Vaccines { get; set; }
         public ICollection<VeterinaryVisit>? VeterinaryVisit { get; set; }
     }
 }

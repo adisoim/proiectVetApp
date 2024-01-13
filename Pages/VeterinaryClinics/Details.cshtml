@@ -1,9 +1,14 @@
 ﻿@page
 @model proiectVetApp.Pages.VeterinaryClinics.DetailsModel
 
+@using Microsoft.AspNetCore.Identity
+
 @{
     ViewData["Title"] = "Details";
 }
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 <h1>Details</h1>
 
@@ -38,6 +43,9 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.VeterinaryClinic.Id">Edit</a> |
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.VeterinaryClinic.Id">Edit</a>
+    }
     <a asp-page="./Index">Back to List</a>
 </div>

@@ -1,9 +1,14 @@
 ﻿@page
 @model proiectVetApp.Pages.VeterinaryVisits.IndexModel
 
+@using Microsoft.AspNetCore.Identity
+
 @{
     ViewData["Title"] = "Index";
 }
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 <h1>Index</h1>
 
@@ -35,32 +40,35 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.VeterinaryVisit) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Animal.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VeterinaryClinic.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VisitDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Symptoms)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Diagnostic)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Treatment)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.VeterinaryVisit)
+        {
+            @if (item.Animal.Member.Email == @UserManager.GetUserName(User))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Animal.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VeterinaryClinic.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VisitDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Symptoms)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Diagnostic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Treatment)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }   }
     </tbody>
 </table>

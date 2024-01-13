@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace proiectClinica.Models
 {
-    public class Member 
+    public class Member
     {
         public int Id { get; set; }
         [RegularExpression(@"^[A-Z][a-zA-Z\s-]*$", ErrorMessage = "Numele trebuie să înceapă cu majusculă și să conțină între 2 și 30 de caractere.")]

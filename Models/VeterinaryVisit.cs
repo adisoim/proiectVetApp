@@ -18,7 +18,7 @@ namespace proiectClinica.Models
         [RegularExpression(@"^[A-Z][a-zA-Z\s-]*$", ErrorMessage = "Simptomele trebuie să înceapă cu majusculă și să conțină între 3 și 100 de caractere.")]
         public string Symptoms { get; set; }
         [RegularExpression(@"^[A-Z][a-zA-Z\s-]*$", ErrorMessage = "Diagnosticul trebuie să înceapă cu majusculă și să conțină între 3 și 100 de caractere.")]
-        public string Diagnostic {  get; set; }
+        public string Diagnostic { get; set; }
         [RegularExpression(@"^[A-Z][a-zA-Z\s-]*$", ErrorMessage = "Tratamentul trebuie să înceapă cu majusculă și să conțină între 3 și 100 de caractere.")]
         public string Treatment { get; set; }
     }

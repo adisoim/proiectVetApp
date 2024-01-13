@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using proiectClinica.Models;
-using proiectVetApp.Data;
 
 namespace proiectVetApp.Pages.Disinfestations
 {
@@ -30,13 +25,13 @@ namespace proiectVetApp.Pages.Disinfestations
                 return NotFound();
             }
 
-            var disinfestation =  await _context.Disinfestation.FirstOrDefaultAsync(m => m.Id == id);
+            var disinfestation = await _context.Disinfestation.FirstOrDefaultAsync(m => m.Id == id);
             if (disinfestation == null)
             {
                 return NotFound();
             }
             Disinfestation = disinfestation;
-           ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Name");
+            ViewData["AnimalId"] = new SelectList(_context.Animal, "Id", "Name");
             return Page();
         }
 
